@@ -1,7 +1,7 @@
 [Ll]ibrary/
 [Tt]emp/
 [Oo]bj/
-[Lo]ogs/
+Logs/*
 [Bb]uild/
 [Bb]uilds/
 Assets/AssetStoreTools*
