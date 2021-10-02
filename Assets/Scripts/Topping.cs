@@ -15,7 +15,7 @@ public class Topping : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, IE
 
     // Start is called before the first frame update
     void Start()
-    {   
+    {
         canvasGroup = GetComponent<CanvasGroup>();
     }
 
