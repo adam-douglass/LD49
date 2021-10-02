@@ -1,0 +1,78 @@
+name: Build and Deploy Testing Branch 
+
+on:
+  push: { branches: [Testing] }
+
+env:
+  UNITY_LICENSE: ${{ secrets.UNITY_LICENSE }}
+
+jobs:
+  build:
+    name: Build my project
+    runs-on: ubuntu-latest
+      
+    steps:
+      - name: Free Disk Space
+        run: |
+          echo "Disk space before:"
+          df -h
+          rm -rf /usr/share/dotnet/
+          rm -rf "/usr/local/share/boost"
+          rm -rf "$AGENT_TOOLSDIRECTORY"
+          echo "Disk space after:"
+          df -h
+          
+      # Get short SHA
+      - name: Get short SHA
+        id: slug
+        run: echo "::set-output name=sha8::$(echo ${GITHUB_SHA} | cut -c1-8)"
+          
+      # Checkout
+      - name: Checkout repository
+        uses: actions/checkout@v2
+        with:
+          lfs: true
+          
+      # Cache
+      - name: Cache
+        uses: actions/cache@v1.1.0
+        with:
+          path: Library
+          key: Library
+      
+      # Test
+      - name: Run tests
+        uses: game-ci/unity-test-runner@v2
+        env:
+            UNITY_LICENSE: ${{ secrets.UNITY_LICENSE }}
+        with:
+          unityVersion: 2020.3.5f1
+          githubToken: ${{ secrets.GITHUB_TOKEN }}
+      
+      # Build
+      - name: Build project
+        uses: game-ci/unity-builder@v2
+        env:
+            UNITY_LICENSE: ${{ secrets.UNITY_LICENSE }}
+        with:
+          unityVersion: 2020.3.5f1
+          targetPlatform: WebGL
+          allowDirtyBuild: true
+      
+      # Output
+      - name: Upload Artifacts
+        uses: actions/upload-artifact@v1
+        with:
+          name: WebGL
+          path: build/WebGL
+      
+      # Upload to itch
+      - name: Upload to Itch
+        uses: josephbmanley/butler-publish-itchio-action@master
+        env:
+          BUTLER_CREDENTIALS: ${{ secrets.BUTLER_CREDENTIALS }}
+          CHANNEL: HTML5
+          ITCH_GAME: ld-49-testing
+          ITCH_USER: mmason
+          PACKAGE: build/WebGL
+          VERSION: ${{ steps.slug.outputs.sha8 }}
