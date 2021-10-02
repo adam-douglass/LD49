@@ -11,6 +11,7 @@ public class ToppingFactory : MonoBehaviour
     void Start()
     {
         Fill();
+        Fill();
     }
 
     // Update is called once per frame

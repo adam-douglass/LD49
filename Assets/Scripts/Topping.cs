@@ -10,7 +10,8 @@ public class Topping : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, IE
     public int Width;
     public int Height;
 
-    public static Topping Dragging;
+    private bool dragging;
+    private Vector3 originPosition;
     private Vector3 mouseLocation;
 
     // Start is called before the first frame update
@@ -22,63 +23,71 @@ public class Topping : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, IE
     // Update is called once per frame
     void Update()
     {
-        if(Dragging == this)
-            SnapOnto();
+        if(dragging) SnapOnto();
+    }
+
+    public Vector2 Offset {
+        get => new Vector2(Width, Height)/2.0f;        
+    }
+    public Vector3 Offset3 {
+        get => new Vector3(Width, Height, 0)/2.0f;        
     }
 
     public void OnPointerDown(PointerEventData eventData) {
-        Debug.Log("Pointer Down");
     }
 
     public void OnBeginDrag(PointerEventData eventData) {
-        Debug.Log("Begin Drag");
         startPosition = this.transform.position;
         canvasGroup.blocksRaycasts = false;
         canvasGroup.alpha = 0.6f;
-        Dragging = this;
+        dragging = true;
+        originPosition = this.transform.parent.position;
     }
 
     public void OnEndDrag(PointerEventData eventData) {
-        Debug.Log("End Drag");
-        this.transform.position = startPosition;
         canvasGroup.blocksRaycasts = true;
         canvasGroup.alpha = 1;
-        Dragging = null;
+        dragging = false;
+
+        var grid = SnapTarget();
+        if(grid){
+            if(grid.AddObject(this, SnapLocation(grid))){
+                return;
+            }
+        }
+        this.transform.position = startPosition + this.transform.parent.position - originPosition;
     }
 
-    private void SnapOnto(){
+    private GridControl SnapTarget(){
         var pos = new Vector3(mouseLocation.x, mouseLocation.y, mouseLocation.z);
 
-        var hits = Physics2D.RaycastAll(pos, Vector2.up);
-
-        GameObject grid = null;
-
-        foreach(var hit in hits){
-            if(hit.collider == null) continue;
-            if(hit.transform.gameObject == this.gameObject) continue;
-            if(hit.transform.gameObject.GetComponent<GridControl>() != null){
-                grid = hit.transform.gameObject;
-                break;
+        GridControl grid = null;
+        foreach(var maybe in GameObject.FindObjectsOfType<GridControl>()){
+            if(maybe.Collider.bounds.Contains(pos)){
+                grid = maybe;
             }
         }
 
-        var offset = new Vector3(0, 0, 0);
-        if((Width & 1) == 0){
-            offset.x = 0.5f;
-        }
-        if((Height & 1) == 0){
-            offset.y = 0.5f;
-        }
+        return grid;
+    }
+
+    private Vector2Int SnapLocation(GridControl grid){
+        var here = mouseLocation - grid.Origin;
+        var local = grid.SnapTo(here, Width, Height);
+        return local;
+    }
+
+    private void SnapOnto(){
+        var grid = SnapTarget();
+        var pos = new Vector3(mouseLocation.x, mouseLocation.y, mouseLocation.z);
+        var offset = new Vector3(((float)Width)/2.0f, ((float)Height)/2.0f, 0);
 
         if(grid == null){
             this.transform.position = pos;
         } else {
-            var local = pos - grid.transform.position;
-            local.x = Mathf.Round(local.x);
-            local.y = Mathf.Round(local.y);
-
-            Debug.Log(local);
-            this.transform.position = local + grid.transform.position; // + offset;
+            var grid_offset = (grid.Collider.bounds.center - new Vector3(grid.Width, grid.Height, 0)/2.0f);
+            var local = SnapLocation(grid);
+            this.transform.position = new Vector3(local.x, local.y, 0) + grid_offset + offset;
         }
     }
 
