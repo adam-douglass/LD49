@@ -15,29 +15,37 @@ jobs:
       matrix:
         include:
           - targetPlatform: StandaloneOSX # Build a macOS standalone (Intel 64-bit).
+            build: true
             itchChannel: osx
             uploadBuild: true
           - targetPlatform: StandaloneWindows # Build a Windows standalone.
+            build: true
             itchChannel: win
             uploadBuild: true
           - targetPlatform: StandaloneWindows64 # Build a Windows 64-bit standalone.
+            build: true
             itchChannel: win64
             uploadBuild: true
           - targetPlatform: StandaloneLinux64 # Build a Linux 64-bit standalone.
+            build: true
             itchChannel: linux64
             uploadBuild: true
           - targetPlatform: iOS # Build an iOS player.
+            build: false # Makes a very large build, ignore for now
             itchChannel: osx
             uploadBuild: false
           - targetPlatform: Android # Build an Android .apk standalone app.
+            build: true
             itchChannel: android
             uploadBuild: false
           - targetPlatform: WebGL # WebGL.
+            build: true
             itchChannel: HTML5
             uploadBuild: true
       
     steps:
       - name: Free Disk Space
+        if: matrix.build == true
         run: |
           echo "Disk space before:"
           df -h
@@ -49,17 +57,20 @@ jobs:
           
       # Get short SHA
       - name: Get short SHA
+        if: matrix.build == true
         id: slug
         run: echo "::set-output name=sha8::$(echo ${GITHUB_SHA} | cut -c1-8)"
           
       # Checkout
       - name: Checkout repository
+        if: matrix.build == true
         uses: actions/checkout@v2
         with:
           lfs: true
           
       # Cache
       - name: Cache
+        if: matrix.build == true
         uses: actions/cache@v1.1.0
         with:
           path: Library
@@ -67,6 +78,7 @@ jobs:
       
       # Test
       - name: Run tests
+        if: matrix.build == true
         uses: game-ci/unity-test-runner@v2
         env:
             UNITY_LICENSE: ${{ secrets.UNITY_LICENSE }}
@@ -76,6 +88,7 @@ jobs:
       
       # Build
       - name: Build project for ${{ matrix.targetPlatform }} platform
+        if: matrix.build == true
         uses: game-ci/unity-builder@v2
         env: 
             UNITY_LICENSE: ${{ secrets.UNITY_LICENSE }}
@@ -86,6 +99,7 @@ jobs:
       
       # Output
       - name: Upload ${{ matrix.targetPlatform }} Artifacts
+        if: matrix.build == true
         uses: actions/upload-artifact@v1
         with:
           name: ${{ matrix.targetPlatform }}
@@ -93,7 +107,7 @@ jobs:
       
       # Upload WebGL to itch
       - name: Upload ${{ matrix.targetPlatform }} to Itch
-        if: matrix.uploadBuild == true
+        if: matrix.uploadBuild == true || matrix.build == true
         uses: josephbmanley/butler-publish-itchio-action@master
         env:
           BUTLER_CREDENTIALS: ${{ secrets.BUTLER_CREDENTIALS }}
