@@ -8,17 +8,34 @@ public class GridControl : MonoBehaviour
     public int Width;
     public int Height;
     public Collider2D Collider;
+    public FlavourKinds[] Flavours;
+
+    private Canvas canvas;
 
     // Start is called before the first frame update
     void Start()
     {
         Collider = GetComponent<Collider2D>();
+        canvas = GetComponent<Canvas>();
+        canvas.worldCamera = Camera.main;
+        int target = Random.Range(1, 3);
+        var selected = new HashSet<FlavourKinds>();
+        var values = System.Enum.GetValues(typeof(FlavourKinds));
+        Flavours = new FlavourKinds[target];
+        
+        while(selected.Count < target){
+            var pick = (FlavourKinds)values.GetValue(Random.Range(0, values.Length));
+            if(!selected.Contains(pick)){
+                Flavours[selected.Count] = pick;
+                selected.Add(pick);
+            }
+        }
     }
 
     // Update is called once per frame
     void Update()
     {
-        // this.transform.position += new Vector3(0, -1, 0) * Time.deltaTime*0.05f;
+
     }
 
     public Vector2 Offset {
@@ -79,5 +96,14 @@ public class GridControl : MonoBehaviour
             }
         }
         return null;
+    }
+
+    public bool HasFlavour(FlavourKinds flavour){
+        foreach(var option in GetComponentsInChildren<Topping>()){
+            if(option.HasFlavour(flavour)){
+                return true;
+            }
+        }
+        return false;
     }
 }

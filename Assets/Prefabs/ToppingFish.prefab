@@ -54,6 +54,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Width: 2
   Height: 3
+  Flavours: 000000000100000002000000
 --- !u!225 &-7226036769456490989
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -173,7 +174,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1497873247
-  m_SortingLayer: 2
+  m_SortingLayer: 5
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: d7f219a454138fc4991dcc78012d2c82, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
