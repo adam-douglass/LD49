@@ -76,7 +76,7 @@ public class GridControl : MonoBehaviour
         } else {
             for(int ii = 0; ii < width; ii++){
                 for(int jj = 0; jj < height; jj++){
-                    var obj = ObjectAt(index + new Vector2Int(ii, jj));
+                    var obj = ObjectAt(index + new Vector2Int(ii, jj), looking);
                     if(obj != null && obj != looking) return false;
                 }
             }
@@ -93,8 +93,9 @@ public class GridControl : MonoBehaviour
         return true;
     }
 
-    public Topping ObjectAt(Vector2Int point) {
+    public Topping ObjectAt(Vector2Int point, Topping ignore=null) {
         foreach(var option in GetComponentsInChildren<Topping>()){
+            if(option == ignore) continue;
             var index = Vector2Int.RoundToInt(option.transform.position - Origin - option.Offset3);
             if(option.Mask.Length > 0){
                 foreach(var offset in option.Mask){
