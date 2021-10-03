@@ -5,13 +5,12 @@ using UnityEngine;
 public class ToppingCarosel : MonoBehaviour
 {
 
-    float generationArea = -10;
+    float generationArea = -16;
     public GameObject FactoryClass;
 
     // Start is called before the first frame update
     void Start()
     {
-        generationArea = Camera.main.ViewportToWorldPoint(new Vector3(0, 0, 0)).x;
     }
 
     // Update is called once per frame

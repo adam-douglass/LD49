@@ -6,6 +6,7 @@ public class ToppingFactory : MonoBehaviour
 {
     public GameObject[] Toppings;
     private Canvas canvas;
+    private System.Random _rand = new System.Random();
 
     // Start is called before the first frame update
     void Start()
@@ -23,7 +24,7 @@ public class ToppingFactory : MonoBehaviour
 
     public void Fill(){
         if(Toppings.Length > 0){
-            var index = Random.Range(0, Toppings.Length);
+            var index = _rand.Next(Toppings.Length);
             var created = Instantiate(Toppings[index], this.gameObject.transform.position, Quaternion.identity);
             created.transform.SetParent(this.canvas.transform);
         } else {

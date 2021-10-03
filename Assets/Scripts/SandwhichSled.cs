@@ -6,7 +6,7 @@ using TMPro;
 
 public class SandwhichSled : MonoBehaviour
 {
-    public GameObject SandwhichPrefab;
+    public GameObject[] SandwhichPrefabs;
     public GameObject Display;
     public TextMeshProUGUI[] Requirements;
     public Font font;
@@ -25,7 +25,8 @@ public class SandwhichSled : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        var created = Instantiate(SandwhichPrefab, this.gameObject.transform.position, Quaternion.identity);
+        var rand = new System.Random();
+        var created = Instantiate(SandwhichPrefabs[rand.Next(SandwhichPrefabs.Length)], this.gameObject.transform.position, Quaternion.identity);
         created.transform.SetParent(this.transform);   
         Sandwhich = created.GetComponent<GridControl>();
 
