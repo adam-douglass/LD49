@@ -10,6 +10,7 @@ public class SandwhichSled : MonoBehaviour
     public GameObject Display;
     public TextMeshProUGUI[] Requirements;
     public Font font;
+    public bool finished = false;
     private GridControl Sandwhich;
     public GameObject FlavourText;
     private AudioManager audioManager;
@@ -27,8 +28,9 @@ public class SandwhichSled : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        this.transform.position -= new Vector3(Time.deltaTime * 0.6f, 0, 0);
         UpdateText();
+        this.transform.position -= new Vector3(Time.deltaTime * 0.6f, 0, 0);
+        if(finished) Sandwhich.Lock();
     }
 
     void UpdateText(){
@@ -45,6 +47,7 @@ public class SandwhichSled : MonoBehaviour
             LayoutRebuilder.MarkLayoutForRebuild(this.transform as RectTransform);
         }
 
+        finished = true;
         for(var ii = 0; ii < Sandwhich.Flavours.Length; ii++){
             if (Sandwhich.HasFlavour(Sandwhich.Flavours[ii]))
             {
@@ -53,6 +56,7 @@ public class SandwhichSled : MonoBehaviour
             else
             {
                 Requirements[ii].fontStyle &= ~FontStyles.Strikethrough;
+                finished = false;
             }
         }
     }

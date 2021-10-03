@@ -35,7 +35,11 @@ public class GridControl : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        
+    }
 
+    public void Lock(){
+        canvas.enabled = false;
     }
 
     public Vector2 Offset {
