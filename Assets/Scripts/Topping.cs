@@ -3,12 +3,27 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
+
+public enum FlavourKinds {
+    Healthy,
+    Boring,
+    Salty,
+    Vegetarian,
+    Fibrous,
+    Dangerous,
+    Sharp,
+    Clean,
+    Crunchy,
+}
+
 public class Topping : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, IEndDragHandler, IDragHandler
 {
     private CanvasGroup canvasGroup;
     private Vector3 startPosition;
     public int Width;
     public int Height;
+    public FlavourKinds[] Flavours;
+    public Vector2Int[] Mask;
 
     private bool dragging;
     private Vector3 originPosition;
@@ -24,6 +39,13 @@ public class Topping : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, IE
     void Update()
     {
         if(dragging) SnapOnto();
+    }
+
+    public bool HasFlavour(FlavourKinds flavour){
+        foreach(var option in Flavours){
+            if(option == flavour) return true;
+        }
+        return false;
     }
 
     public Vector2 Offset {
