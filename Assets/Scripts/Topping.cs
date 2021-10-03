@@ -8,7 +8,12 @@ public enum FlavourKinds {
     Healthy,
     Boring,
     Salty,
-    Vegetarian
+    Vegetarian,
+    Fibrous,
+    Dangerous,
+    Sharp,
+    Clean,
+    Crunchy,
 }
 
 public class Topping : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, IEndDragHandler, IDragHandler
@@ -18,6 +23,7 @@ public class Topping : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, IE
     public int Width;
     public int Height;
     public FlavourKinds[] Flavours;
+    public Vector2Int[] Mask;
 
     private bool dragging;
     private Vector3 originPosition;

@@ -53,6 +53,8 @@ MonoBehaviour:
   Toppings:
   - {fileID: 4166907603971587519, guid: cb181aa4fa7112e4781d4536059ad37d, type: 3}
   - {fileID: 4166907603971587519, guid: 42faf929a871cf84094d80219f34366e, type: 3}
+  - {fileID: 4166907603971587519, guid: 542c2b1e88ae082499a6a07af9cbb47a, type: 3}
+  - {fileID: 4166907603971587519, guid: 57a47705b28965b43a409fb5f3b62399, type: 3}
 --- !u!1 &6025535224964263805
 GameObject:
   m_ObjectHideFlags: 0

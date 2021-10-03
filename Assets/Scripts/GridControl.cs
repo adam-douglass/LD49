@@ -68,10 +68,17 @@ public class GridControl : MonoBehaviour
     }
 
     public bool AreaClearFor(Vector2Int index, int width, int height, Topping looking){
-        for(int ii = 0; ii < width; ii++){
-            for(int jj = 0; jj < height; jj++){
-                var obj = ObjectAt(index + new Vector2Int(ii, jj));
+        if(looking.Mask.Length > 0){
+            foreach(var offset in looking.Mask){
+                var obj = ObjectAt(index + offset);
                 if(obj != null && obj != looking) return false;
+            }
+        } else {
+            for(int ii = 0; ii < width; ii++){
+                for(int jj = 0; jj < height; jj++){
+                    var obj = ObjectAt(index + new Vector2Int(ii, jj));
+                    if(obj != null && obj != looking) return false;
+                }
             }
         }
         return true;
@@ -89,9 +96,17 @@ public class GridControl : MonoBehaviour
     public Topping ObjectAt(Vector2Int point) {
         foreach(var option in GetComponentsInChildren<Topping>()){
             var index = Vector2Int.RoundToInt(option.transform.position - Origin - option.Offset3);
-            if(index.x <= point.x && point.x < index.x + option.Width){
-                if(index.y <= point.y && point.y < index.y + option.Height){
-                    return option;
+            if(option.Mask.Length > 0){
+                foreach(var offset in option.Mask){
+                    if(index + offset == point){
+                        return option;
+                    }
+                }
+            } else {
+                if(index.x <= point.x && point.x < index.x + option.Width){
+                    if(index.y <= point.y && point.y < index.y + option.Height){
+                        return option;
+                    }
                 }
             }
         }
