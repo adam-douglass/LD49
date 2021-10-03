@@ -11,6 +11,7 @@ public class SandwhichSled : MonoBehaviour
     public Text[] Requirements;
     public Font font;
     private GridControl Sandwhich;
+    private AudioManager audioManager;
 
     // Start is called before the first frame update
     void Start()
@@ -18,6 +19,8 @@ public class SandwhichSled : MonoBehaviour
         var created = Instantiate(SandwhichPrefab, this.gameObject.transform.position, Quaternion.identity);
         created.transform.SetParent(this.transform);   
         Sandwhich = created.GetComponent<GridControl>();
+
+        audioManager = FindObjectOfType<AudioManager>();
     }
 
     // Update is called once per frame
@@ -48,6 +51,14 @@ public class SandwhichSled : MonoBehaviour
             } else {
                 Requirements[ii].text = Sandwhich.Flavours[ii].ToString();
             }
+        }
+    }
+
+    private void OnDestroy()
+    {
+        if (audioManager != null)
+        {
+            audioManager.RingBell();
         }
     }
 
