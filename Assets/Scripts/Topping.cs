@@ -88,7 +88,7 @@ public class Topping : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, IE
 
         GridControl grid = null;
         foreach(var maybe in GameObject.FindObjectsOfType<GridControl>()){
-            if(maybe.Collider.bounds.Contains(pos)){
+            if(maybe.Collider.bounds.Contains(pos) && maybe.Fits(Width, Height)){
                 grid = maybe;
             }
         }

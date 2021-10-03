@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 5661013372660852470}
   - component: {fileID: 3760278960634136717}
   m_Layer: 0
-  m_Name: SandwhichGridSmall
+  m_Name: SandwhichGridTall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -39,7 +39,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 1}
-  m_SizeDelta: {x: 6, y: 5}
+  m_SizeDelta: {x: 6, y: 7}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &4390668944147506129
 MonoBehaviour:
@@ -53,8 +53,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69aac52465934dc4faf976524dee626d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Width: 4
-  Height: 3
+  Width: 3
+  Height: 6
   Collider: {fileID: 557065751}
   Flavours: 
 --- !u!61 &557065751
@@ -70,7 +70,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -0.5}
+  m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -81,7 +81,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 4, y: 3}
+  m_Size: {x: 3, y: 6}
   m_EdgeRadius: 0
 --- !u!223 &8309046233274362454
 Canvas:
@@ -126,7 +126,7 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
-  m_PresetInfoIsWorld: 1
+  m_PresetInfoIsWorld: 0
 --- !u!114 &3760278960634136717
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -170,7 +170,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8509788661279384318}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0.5, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 3067044517225670682}
@@ -216,7 +216,7 @@ SpriteRenderer:
   m_SortingLayerID: -1979539713
   m_SortingLayer: 4
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 9f7b05833d1d9dd4983f83ed9bcacb87, type: 3}
+  m_Sprite: {fileID: 21300000, guid: a7f37cde66da8ed4698fed85d768fc49, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -240,16 +240,16 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: -0.5, y: 0.5}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 6, y: 6}
+    oldSize: {x: 6, y: 8}
     newSize: {x: 16, y: 16}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 6, y: 6}
+  m_Size: {x: 6, y: 7.5}
   m_EdgeRadius: 0
