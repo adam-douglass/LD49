@@ -34,9 +34,11 @@ public class Topping : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, IE
     }
 
     public void OnPointerDown(PointerEventData eventData) {
+        Debug.Log("Pointer Down");
     }
 
     public void OnBeginDrag(PointerEventData eventData) {
+        Debug.Log("Begin Drag");
         startPosition = this.transform.position;
         canvasGroup.blocksRaycasts = false;
         canvasGroup.alpha = 0.6f;
@@ -45,6 +47,7 @@ public class Topping : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, IE
     }
 
     public void OnEndDrag(PointerEventData eventData) {
+        Debug.Log("End Drag");
         canvasGroup.blocksRaycasts = true;
         canvasGroup.alpha = 1;
         dragging = false;
@@ -92,7 +95,9 @@ public class Topping : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, IE
     }
 
     public void OnDrag(PointerEventData eventData) {
-        mouseLocation = eventData.pointerCurrentRaycast.worldPosition;
+        mouseLocation = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        mouseLocation.z = 0;
+        Debug.Log($"{mouseLocation}");
         SnapOnto();
     }
 

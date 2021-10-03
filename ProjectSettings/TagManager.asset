@@ -44,6 +44,15 @@ TagManager:
   - name: Background
     uniqueID: 2989964355
     locked: 0
+  - name: Belts
+    uniqueID: 2886603061
+    locked: 0
+  - name: Carts
+    uniqueID: 2581575825
+    locked: 0
+  - name: Sandwhich
+    uniqueID: 2315427583
+    locked: 0
   - name: Toppings
     uniqueID: 1497873247
     locked: 0

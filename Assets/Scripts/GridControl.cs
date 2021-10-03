@@ -18,7 +18,7 @@ public class GridControl : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        this.transform.position += new Vector3(0, -1, 0) * Time.deltaTime*0.05f;
+        // this.transform.position += new Vector3(0, -1, 0) * Time.deltaTime*0.05f;
     }
 
     public Vector2 Offset {
