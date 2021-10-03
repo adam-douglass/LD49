@@ -119,7 +119,6 @@ public class Topping : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, IE
     public void OnDrag(PointerEventData eventData) {
         mouseLocation = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         mouseLocation.z = 0;
-        Debug.Log($"{mouseLocation}");
         SnapOnto();
     }
 
