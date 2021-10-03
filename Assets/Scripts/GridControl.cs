@@ -70,7 +70,7 @@ public class GridControl : MonoBehaviour
     public bool AreaClearFor(Vector2Int index, int width, int height, Topping looking){
         if(looking.Mask.Length > 0){
             foreach(var offset in looking.Mask){
-                var obj = ObjectAt(index + offset);
+                var obj = ObjectAt(index + offset, looking);
                 if(obj != null && obj != looking) return false;
             }
         } else {
