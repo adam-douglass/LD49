@@ -15,7 +15,6 @@ public class GridControl : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Collider = GetComponent<Collider2D>();
         canvas = GetComponent<Canvas>();
         canvas.worldCamera = Camera.main;
         int target = Random.Range(1, 3);

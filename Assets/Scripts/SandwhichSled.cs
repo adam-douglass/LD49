@@ -46,14 +46,31 @@ public class SandwhichSled : MonoBehaviour
                 velocity = 0;
             }
 
-            velocity += Time.deltaTime*2.0f;
+            velocity += Time.deltaTime*20.0f;
             this.transform.position += new Vector3(0, velocity * Time.deltaTime, 0);
             if(CalculateBounds().min.y > WorldHeight){
                 Destroy(this.gameObject);
             }
         } else {
-            this.transform.position -= new Vector3(Time.deltaTime * 0.6f, 0, 0);
+            velocity += 10.0f * Time.deltaTime;
+            var delta = Time.deltaTime * velocity;
+            if(CanMoveLeft(delta)){
+                this.transform.position -= new Vector3(delta, 0, 0);
+            } else {
+                velocity = 0;
+            }
         }
+    }
+
+    public bool CanMoveLeft(float delta) {
+        var bounds = CalculateBounds();
+        if(bounds.min.x < -WorldWidth) return false;
+        foreach(var other in GameObject.FindObjectsOfType<SandwhichSled>()){
+            if(other == this) continue;
+            if(other.transform.position.x > this.transform.position.x) continue;
+            if(other.CalculateBounds().max.x > bounds.min.x-delta) return false;
+        }
+        return true;
     }
 
     public Bounds CalculateBounds ()

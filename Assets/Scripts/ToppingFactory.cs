@@ -18,7 +18,7 @@ public class ToppingFactory : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        this.transform.position += new Vector3(Time.deltaTime * 0.3f, 0, 0);   
+        this.transform.position += new Vector3(Time.deltaTime, 0, 0);   
     }
 
     public void Fill(){

@@ -55,7 +55,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Width: 6
   Height: 3
-  Collider: {fileID: 0}
+  Collider: {fileID: 557065751}
   Flavours: 
 --- !u!61 &557065751
 BoxCollider2D:
@@ -154,6 +154,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1813078226031068182}
   - component: {fileID: 7819979000609737092}
+  - component: {fileID: 5041063000378636701}
   m_Layer: 0
   m_Name: grid-1
   m_TagString: Untagged
@@ -226,3 +227,29 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!61 &5041063000378636701
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8509788661279384318}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 8, y: 6}
+    newSize: {x: 16, y: 16}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 8, y: 6}
+  m_EdgeRadius: 0
