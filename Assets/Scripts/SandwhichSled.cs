@@ -10,10 +10,17 @@ public class SandwhichSled : MonoBehaviour
     public GameObject Display;
     public TextMeshProUGUI[] Requirements;
     public Font font;
+    
     public bool finished = false;
+    public bool first_finished = true;
+
     private GridControl Sandwhich;
     public GameObject FlavourText;
     private AudioManager audioManager;
+    private float velocity;
+
+    private const int WorldHeight = 10;
+    private const int WorldWidth = 15;
 
     // Start is called before the first frame update
     void Start()
@@ -29,8 +36,35 @@ public class SandwhichSled : MonoBehaviour
     void Update()
     {
         UpdateText();
-        this.transform.position -= new Vector3(Time.deltaTime * 0.6f, 0, 0);
-        if(finished) Sandwhich.Lock();
+        if(finished) {
+            if(first_finished){
+                first_finished = false;
+                if (audioManager != null){
+                    audioManager.RingBell();
+                }
+                Sandwhich.Lock();
+                velocity = 0;
+            }
+
+            velocity += Time.deltaTime*2.0f;
+            this.transform.position += new Vector3(0, velocity * Time.deltaTime, 0);
+            if(CalculateBounds().min.y > WorldHeight){
+                Destroy(this.gameObject);
+            }
+        } else {
+            this.transform.position -= new Vector3(Time.deltaTime * 0.6f, 0, 0);
+        }
+    }
+
+    public Bounds CalculateBounds ()
+    {
+        Bounds bounds = new Bounds(this.transform.position, new Vector3(0, 0, 0));
+        Collider2D[] colliders = GetComponentsInChildren<Collider2D>();
+        foreach (Collider2D col in colliders)
+        {
+            bounds.Encapsulate(col.bounds);
+        }
+        return bounds;
     }
 
     void UpdateText(){
@@ -63,9 +97,9 @@ public class SandwhichSled : MonoBehaviour
 
     private void OnDestroy()
     {
-        if (audioManager != null)
-        {
-            audioManager.RingBell();
-        }
+        // if (audioManager != null)
+        // {
+        //     audioManager.RingBell();
+        // }
     }
 }
