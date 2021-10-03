@@ -338,3 +338,4 @@ MonoBehaviour:
   Display: {fileID: 996965257363356585}
   Requirements: []
   font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+  FlavourText: {fileID: 8517667214520750248, guid: 868aab9c03ccb9a45a264862f98515cf, type: 3}

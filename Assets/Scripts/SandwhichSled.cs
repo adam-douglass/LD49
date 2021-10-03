@@ -2,15 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-
+using TMPro;
 
 public class SandwhichSled : MonoBehaviour
 {
     public GameObject SandwhichPrefab;
     public GameObject Display;
-    public Text[] Requirements;
+    public TextMeshProUGUI[] Requirements;
     public Font font;
     private GridControl Sandwhich;
+    public GameObject FlavourText;
     private AudioManager audioManager;
 
     // Start is called before the first frame update
@@ -32,24 +33,26 @@ public class SandwhichSled : MonoBehaviour
 
     void UpdateText(){
         if(Requirements.Length != Sandwhich.Flavours.Length){
-            Requirements = new Text[Sandwhich.Flavours.Length];
+            Requirements = new TextMeshProUGUI[Sandwhich.Flavours.Length];
             for(var ii = 0; ii < Sandwhich.Flavours.Length; ii++){
-                var body = new GameObject("requirementtext");
-                body.transform.SetParent(Display.transform);
-                body.transform.localScale = new Vector3(1, 1, 1);
-                Requirements[ii] = body.AddComponent<Text>();
-                Requirements[ii].color = Color.black;
-                Requirements[ii].fontSize = 50;
-                Requirements[ii].font = font;
+                //var body = new GameObject("requirementtext");
+                GameObject body = Instantiate(FlavourText, Display.transform);
+                body.name = "requirementtext";
+                Requirements[ii] = body.GetComponent<TextMeshProUGUI>();
+                Requirements[ii].text = Sandwhich.Flavours[ii].ToString();
             }
+
             LayoutRebuilder.MarkLayoutForRebuild(this.transform as RectTransform);
         }
 
         for(var ii = 0; ii < Sandwhich.Flavours.Length; ii++){
-            if(Sandwhich.HasFlavour(Sandwhich.Flavours[ii])){
-                Requirements[ii].text = Strikethrough(Sandwhich.Flavours[ii].ToString());
-            } else {
-                Requirements[ii].text = Sandwhich.Flavours[ii].ToString();
+            if (Sandwhich.HasFlavour(Sandwhich.Flavours[ii]))
+            {
+                Requirements[ii].fontStyle |= FontStyles.Strikethrough;
+            }
+            else
+            {
+                Requirements[ii].fontStyle &= ~FontStyles.Strikethrough;
             }
         }
     }
@@ -60,15 +63,5 @@ public class SandwhichSled : MonoBehaviour
         {
             audioManager.RingBell();
         }
-    }
-
-    public string Strikethrough(string s)
-    {
-        string strikethrough = "";
-        foreach (char c in s)
-        {
-            strikethrough = strikethrough + c + '\u0336';
-        }
-        return strikethrough;
     }
 }
