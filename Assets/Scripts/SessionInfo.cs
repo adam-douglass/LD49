@@ -15,10 +15,12 @@ public class SessionInfo : MonoBehaviour
 
     public int sandwhichFinished = 0;
     public int ingredientWasted = 0;
+    public int wasteLimit = 50;
 
-    public void Reset(){
+    public void ResetForTrial(){
         sandwhichFinished = 0;
         ingredientWasted = 0;
+        wasteLimit = 50;
     }
 
     // Start is called before the first frame update

@@ -21,11 +21,12 @@ public class SandwhichSled : MonoBehaviour
 
     private const int WorldHeight = 10;
     private const int WorldWidth = 15;
-    private static int FinishedCount = 0;
+    private SessionInfo session;
 
     // Start is called before the first frame update
     void Start()
     {
+        session = SessionInfo.Singleton;
         var rand = new System.Random();
         var created = Instantiate(SandwhichPrefabs[rand.Next(SandwhichPrefabs.Length)], this.gameObject.transform.position, Quaternion.identity);
         created.transform.SetParent(this.transform);   
@@ -46,8 +47,8 @@ public class SandwhichSled : MonoBehaviour
                 }
                 Sandwhich.Lock();
                 velocity = 0;
-                FinishedCount += 1;
-                if(FinishedCount % 2 == 0){
+                session.sandwhichFinished += 1;
+                if(session.sandwhichFinished % 2 == 0){
                     ToppingFactory.AddMoreFlavour();
                 }
             }

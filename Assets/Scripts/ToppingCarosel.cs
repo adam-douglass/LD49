@@ -33,8 +33,11 @@ public class ToppingCarosel : MonoBehaviour
     {
         float left = -generationArea;
         foreach(var obj in this.gameObject.GetComponentsInChildren<ToppingFactory>()){
-            if(obj.transform.position.x  > -generationArea){
+            if(obj.transform.position.x - obj.Width/2.0  > -generationArea){
                 GameObject.Destroy(obj.gameObject);
+                if(obj.gameObject.GetComponentInChildren<Topping>()){
+                    SessionInfo.IngredientWasted();
+                }
             }
             var topping = obj.gameObject.GetComponentInChildren<Topping>();
             if(topping){
