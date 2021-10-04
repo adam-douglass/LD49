@@ -134,6 +134,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d1cb0934f5ddd3a499fc90ced7da6116, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Name: Sliced bar of soap
   Width: 2
   Height: 1
   Flavours: 03000000070000000f000000

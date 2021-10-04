@@ -55,6 +55,8 @@ MonoBehaviour:
   Width: 2
   Height: 3
   Flavours: 000000000100000002000000
+  Mask: []
+  Name: Fish
 --- !u!225 &-7226036769456490989
 CanvasGroup:
   m_ObjectHideFlags: 0

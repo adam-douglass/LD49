@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using TMPro;
 
 
 public enum FlavourKinds {
@@ -26,6 +27,7 @@ public enum FlavourKinds {
 
 public class Topping : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, IEndDragHandler, IDragHandler
 {
+    public string Name;
     private CanvasGroup canvasGroup;
     private Vector3 startPosition;
     public int Width;
@@ -74,6 +76,18 @@ public class Topping : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, IE
         canvasGroup.alpha = 0.6f;
         dragging = true;
         originPosition = this.transform.parent.position;
+        var label = GameObject.Find("ItemNameText");
+        if(label){
+            label.GetComponent<TextMeshProUGUI>().text = Name;
+        }
+        label = GameObject.Find("ItemValuesText");
+        if(label){
+            string output = "";
+            foreach(var taste in Flavours){
+                output += taste.ToString() + " ";
+            }
+            label.GetComponent<TextMeshProUGUI>().text = output;
+        }
     }
 
     public void OnEndDrag(PointerEventData eventData) {

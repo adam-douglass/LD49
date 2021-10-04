@@ -52,6 +52,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d1cb0934f5ddd3a499fc90ced7da6116, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Name: That thing in the back of the fridge
   Width: 2
   Height: 1
   Flavours: 0f0000000c00000010000000090000000d000000

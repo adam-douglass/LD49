@@ -52,6 +52,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d1cb0934f5ddd3a499fc90ced7da6116, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Name: Dust bunnies
   Width: 1
   Height: 2
   Flavours: 0c0000000100000004000000
