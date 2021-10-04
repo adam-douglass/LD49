@@ -7,8 +7,21 @@ public class TitleMenu : MonoBehaviour
 {
     public GameObject helpPanel;
 
-    public void StartGame()
+    public void StartGame_Trial()
     {
+        SessionInfo.Singleton.ResetForTrial();
+        SceneManager.LoadScene(1);
+    }
+
+    public void StartGame_Timed()
+    {
+        SessionInfo.Singleton.ResetForTimed();
+        SceneManager.LoadScene(1);
+    }
+
+    public void StartGame_Zen()
+    {
+        SessionInfo.Singleton.ResetForZen();
         SceneManager.LoadScene(1);
     }
 
