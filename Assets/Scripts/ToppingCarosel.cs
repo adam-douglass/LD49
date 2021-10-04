@@ -8,6 +8,11 @@ public class ToppingCarosel : MonoBehaviour
     float generationArea = -16;
     public GameObject FactoryClass;
 
+    void Awake(){
+        for(var ii = 0; ii < 5; ii++)
+            ToppingFactory.AddMoreFlavour();
+    }
+
     // Start is called before the first frame update
     void Start()
     {
@@ -27,7 +32,7 @@ public class ToppingCarosel : MonoBehaviour
             }
             
         }
-        Debug.Log(left);
+
         if(left > generationArea){
             var position = new Vector3(generationArea, this.transform.position.y, 0);
             var created = Instantiate(FactoryClass, position, Quaternion.identity);
