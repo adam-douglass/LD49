@@ -17,10 +17,16 @@ public class Randwhich
 
     public int GetRandom(int maxExclusive)
     {
+        int tries = 0;
         int index = -1;
         do
         {
             index = _rand.Next(maxExclusive);
+            tries++;
+            if (tries > 20)
+            {
+                break;
+            }
         } while (previousRandomNumbers.Contains(index));
 
         if (previousRandomNumbers.Count >= Math.Min(numberOfPrevious, maxExclusive - 2))
