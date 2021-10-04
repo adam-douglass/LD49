@@ -12,7 +12,21 @@ public class ToppingFactory : MonoBehaviour
     private int numberOfPrevious = 4;
 
     private Randwhich rand;
-    
+
+    public static HashSet<FlavourKinds> ActiveFlavours = new HashSet<FlavourKinds>();
+    public static void AddMoreFlavour(){
+        var options = new List<FlavourKinds>();
+        foreach(var value in System.Enum.GetValues(typeof(FlavourKinds))){
+            var kind = (FlavourKinds)value;
+            if(!ActiveFlavours.Contains(kind)){
+                options.Add(kind);
+            }
+        }
+        if(options.Count == 0) return;
+        var rand = new System.Random();
+        ActiveFlavours.Add(options[rand.Next(options.Count)]);
+    }
+
     // Start is called before the first frame update
     void Start()
     {
@@ -32,6 +46,19 @@ public class ToppingFactory : MonoBehaviour
     public void Fill(){
         if(Toppings.Length > 0){
             var index = rand.GetRandom(Toppings.Length);
+            while (true){
+                var good = false;
+                foreach(var flav in Toppings[index].GetComponent<Topping>().Flavours){
+                    if(ActiveFlavours.Contains(flav)){
+                        good = true;
+                        break;
+                    }
+                }
+
+                if(good) break;
+                index = rand.GetRandom(Toppings.Length);
+            }
+            
             var created = Instantiate(Toppings[index], this.gameObject.transform.position, Quaternion.identity);
             created.transform.SetParent(canvas.transform);
             var topping = created.GetComponent<Topping>();
