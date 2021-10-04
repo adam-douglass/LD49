@@ -135,6 +135,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Name: A rotisserie penguin
+  UsedName: A used rotisserie penguin
   Width: 2
   Height: 2
   Flavours: 0e000000000000000d000000

@@ -53,6 +53,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Name: A bowl of ceasar salad
+  UsedName: Patera usus sem
   Width: 2
   Height: 2
   Flavours: 03000000080000000f000000

@@ -30,6 +30,7 @@ public enum FlavourKinds {
 public class Topping : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, IEndDragHandler, IDragHandler, IPointerEnterHandler
 {
     public string Name;
+    public string UsedName;
     private CanvasGroup canvasGroup;
     private Vector3 startPosition;
     public int Width;
@@ -42,6 +43,7 @@ public class Topping : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, IE
     private Vector3 mouseLocation;
 
     private int timesPlaced = 0;
+    private GridControl lastGrid = null;
 
     // Start is called before the first frame update
     void Start()
@@ -85,7 +87,12 @@ public class Topping : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, IE
     public void OnPointerEnter(PointerEventData eventData){
         var label = GameObject.Find("ItemNameText");
         if(label){
-            label.GetComponent<TextMeshProUGUI>().text = System.Environment.NewLine + Name;
+            if (Flavours.Contains(FlavourKinds.Used)){
+                label.GetComponent<TextMeshProUGUI>().text = System.Environment.NewLine + UsedName;
+            }
+            else{
+                label.GetComponent<TextMeshProUGUI>().text = System.Environment.NewLine + Name;
+            }
         }
         label = GameObject.Find("ItemValuesText");
         if(label){
@@ -106,11 +113,15 @@ public class Topping : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, IE
         var grid = SnapTarget();
         if(grid){
             if(grid.AddObject(this, SnapLocation(grid))){
-                timesPlaced++;
-                if (timesPlaced == 2)
+                if (lastGrid != grid)
                 {
-                    System.Array.Resize(ref Flavours, this.Flavours.Length + 1);
-                    Flavours[Flavours.Length - 1] = FlavourKinds.Used;
+                    timesPlaced++;
+                    if (timesPlaced == 2)
+                    {
+                        System.Array.Resize(ref Flavours, this.Flavours.Length + 1);
+                        Flavours[Flavours.Length - 1] = FlavourKinds.Used;
+                    }
+                    lastGrid = grid;
                 }
                 return;
             }

@@ -53,6 +53,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Name: Fish
+  UsedName: Used fish
   Width: 2
   Height: 3
   Flavours: 0000000001000000020000000f000000

@@ -53,6 +53,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Name: That thing in the back of the fridge
+  UsedName: That thing in the back of the fridge (why are you putting this on more
+    than one sandwich?)
   Width: 2
   Height: 1
   Flavours: 0f0000000c00000010000000090000000d000000

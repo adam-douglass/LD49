@@ -53,6 +53,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Name: Some nice tasting sand
+  UsedName: Some used tasting sand
   Width: 2
   Height: 1
   Flavours: 070000000a0000000d000000

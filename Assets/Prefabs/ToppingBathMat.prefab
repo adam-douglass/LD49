@@ -53,6 +53,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Name: A bath mat
+  UsedName: A used bath mat
   Width: 3
   Height: 1
   Flavours: 0c0000000f00000004000000

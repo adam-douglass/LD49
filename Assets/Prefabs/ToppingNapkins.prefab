@@ -53,6 +53,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Name: Napkins
+  UsedName: Used napkins
   Width: 3
   Height: 2
   Flavours: 010000000400000007000000

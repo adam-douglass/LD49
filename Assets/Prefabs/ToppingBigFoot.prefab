@@ -135,6 +135,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Name: Sasquatch foot
+  UsedName: Used Sasquatch foot
   Width: 4
   Height: 1
   Flavours: 0c0000000d0000000e000000
