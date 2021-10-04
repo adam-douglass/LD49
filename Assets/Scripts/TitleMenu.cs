@@ -25,6 +25,12 @@ public class TitleMenu : MonoBehaviour
         SceneManager.LoadScene(1);
     }
 
+    public void StartGame_Puzzle()
+    {
+        SessionInfo.Singleton.ResetForPuzzle();
+        SceneManager.LoadScene(1);
+    }
+
     public void Help()
     {
         helpPanel.SetActive(true);

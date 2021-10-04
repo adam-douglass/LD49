@@ -48,7 +48,7 @@ public class SessionInfo : MonoBehaviour
     }
     
     public void ResetForPuzzle(){
-        gameMode = GameMode.Zen;
+        gameMode = GameMode.Puzzle;
         sandwhichFinished = 0;
         ingredientWasted = 0;
     }
