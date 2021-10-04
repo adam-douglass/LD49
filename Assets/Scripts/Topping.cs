@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using TMPro;
 
 
 public enum FlavourKinds {
@@ -14,10 +15,19 @@ public enum FlavourKinds {
     Sharp,
     Clean,
     Crunchy,
+    Sticky,
+    Savoury,
+    Hot,
+    Fuzzy,
+    Exotic,
+    Extravagant,
+    Slimey,
+    Fragile,
 }
 
 public class Topping : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, IEndDragHandler, IDragHandler
 {
+    public string Name;
     private CanvasGroup canvasGroup;
     private Vector3 startPosition;
     public int Width;
@@ -66,6 +76,18 @@ public class Topping : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, IE
         canvasGroup.alpha = 0.6f;
         dragging = true;
         originPosition = this.transform.parent.position;
+        var label = GameObject.Find("ItemNameText");
+        if(label){
+            label.GetComponent<TextMeshProUGUI>().text = System.Environment.NewLine + Name;
+        }
+        label = GameObject.Find("ItemValuesText");
+        if(label){
+            string output = "";
+            foreach(var taste in Flavours){
+                output += taste.ToString() + System.Environment.NewLine;
+            }
+            label.GetComponent<TextMeshProUGUI>().text = output;
+        }
     }
 
     public void OnEndDrag(PointerEventData eventData) {
@@ -88,7 +110,7 @@ public class Topping : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, IE
 
         GridControl grid = null;
         foreach(var maybe in GameObject.FindObjectsOfType<GridControl>()){
-            if(maybe.Collider.bounds.Contains(pos)){
+            if(maybe.Collider.bounds.Contains(pos) && maybe.Fits(Width, Height)){
                 grid = maybe;
             }
         }
@@ -119,7 +141,6 @@ public class Topping : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, IE
     public void OnDrag(PointerEventData eventData) {
         mouseLocation = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         mouseLocation.z = 0;
-        Debug.Log($"{mouseLocation}");
         SnapOnto();
     }
 
