@@ -21,6 +21,7 @@ public class SandwhichSled : MonoBehaviour
 
     private const int WorldHeight = 10;
     private const int WorldWidth = 15;
+    private static int FinishedCount = 0;
 
     // Start is called before the first frame update
     void Start()
@@ -45,6 +46,10 @@ public class SandwhichSled : MonoBehaviour
                 }
                 Sandwhich.Lock();
                 velocity = 0;
+                FinishedCount += 1;
+                if(FinishedCount % 2 == 0){
+                    ToppingFactory.AddMoreFlavour();
+                }
             }
 
             velocity += Time.deltaTime*20.0f;
