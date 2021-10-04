@@ -69,7 +69,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1497873247
-  m_SortingLayer: 5
+  m_SortingLayer: 6
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: a1dd9fcf85840004785a51ce5f0d5fd3, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -138,7 +138,7 @@ MonoBehaviour:
   UsedName: Too many used croutons
   Width: 3
   Height: 3
-  Flavours: 080000000100000010000000
+  Flavours: 0800000001000000100000000300000002000000
   Mask: []
 --- !u!225 &7029688560369579608
 CanvasGroup:

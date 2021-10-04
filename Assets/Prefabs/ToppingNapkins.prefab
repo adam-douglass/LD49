@@ -56,7 +56,7 @@ MonoBehaviour:
   UsedName: Used napkins
   Width: 3
   Height: 2
-  Flavours: 010000000400000007000000
+  Flavours: 0100000004000000070000000c000000
   Mask: []
 --- !u!225 &712981526776227907
 CanvasGroup:
@@ -177,7 +177,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1497873247
-  m_SortingLayer: 5
+  m_SortingLayer: 6
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: f0eb91790020cfe499b86f9d92300656, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}

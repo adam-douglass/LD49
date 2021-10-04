@@ -56,7 +56,7 @@ MonoBehaviour:
   UsedName: Almost a whole pack of cigarettes
   Width: 1
   Height: 2
-  Flavours: 050000000b0000000a000000
+  Flavours: 050000000b0000000a0000000e000000
   Mask: []
 --- !u!225 &4471734779297502179
 CanvasGroup:
@@ -177,7 +177,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1497873247
-  m_SortingLayer: 5
+  m_SortingLayer: 6
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 33aef4cab0cfa1c45928ddc98cf5d6ad, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}

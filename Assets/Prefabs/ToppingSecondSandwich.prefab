@@ -132,7 +132,7 @@ MonoBehaviour:
   UsedName: A second used sandwich
   Width: 4
   Height: 3
-  Flavours: 0a0000000e00000005000000
+  Flavours: 0a0000000e0000000500000003000000
   Mask:
   - {x: 0, y: 0}
   - {x: 0, y: 1}
