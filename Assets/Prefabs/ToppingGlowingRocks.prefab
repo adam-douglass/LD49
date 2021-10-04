@@ -135,6 +135,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Name: Glowing rocks
+  UsedName: Used glowing rocks
   Width: 1
   Height: 1
   Flavours: 0500000008000000070000000b000000

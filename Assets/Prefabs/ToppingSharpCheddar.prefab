@@ -53,6 +53,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Name: Sharp cheddar slices
+  UsedName: Slightly dull cheddar slices
   Width: 2
   Height: 2
   Flavours: 060000000500000000000000

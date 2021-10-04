@@ -135,6 +135,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Name: Sliced bar of soap
+  UsedName: Used sliced bar of soap
   Width: 2
   Height: 1
   Flavours: 03000000070000000f000000

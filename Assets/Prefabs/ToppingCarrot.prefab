@@ -53,6 +53,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Name: Carrot
+  UsedName: Most of a carrot
   Width: 1
   Height: 2
   Flavours: 000000000100000003000000

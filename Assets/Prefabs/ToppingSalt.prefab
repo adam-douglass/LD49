@@ -53,6 +53,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Name: A pile of salt
+  UsedName: A pile of used salt
   Width: 1
   Height: 1
   Flavours: 02000000030000000700000008000000

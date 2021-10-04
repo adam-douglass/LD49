@@ -53,6 +53,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Name: Fully dressed baked potatoes
+  UsedName: Fully used baked potatoes
   Width: 2
   Height: 2
   Flavours: 00000000040000000b000000

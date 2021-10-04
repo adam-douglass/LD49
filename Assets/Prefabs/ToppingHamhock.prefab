@@ -135,6 +135,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Name: An entire hamhock
+  UsedName: An entire used hamhock
   Width: 2
   Height: 2
   Flavours: 090000000a0000000b000000

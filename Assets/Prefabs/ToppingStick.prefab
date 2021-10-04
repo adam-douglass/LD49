@@ -135,6 +135,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Name: A stick
+  UsedName: A used stick (aka a stick)
   Width: 1
   Height: 2
   Flavours: 090000000800000006000000

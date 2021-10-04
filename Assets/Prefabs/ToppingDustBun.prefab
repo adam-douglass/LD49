@@ -53,6 +53,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Name: Dust bunnies
+  UsedName: Used dust bunnies
   Width: 1
   Height: 2
   Flavours: 0c0000000100000004000000
