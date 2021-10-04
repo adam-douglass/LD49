@@ -25,7 +25,7 @@ public enum FlavourKinds {
     Fragile,
 }
 
-public class Topping : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, IEndDragHandler, IDragHandler
+public class Topping : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, IEndDragHandler, IDragHandler, IPointerEnterHandler
 {
     public string Name;
     private CanvasGroup canvasGroup;
@@ -76,6 +76,9 @@ public class Topping : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, IE
         canvasGroup.alpha = 0.6f;
         dragging = true;
         originPosition = this.transform.parent.position;
+    }
+
+    public void OnPointerEnter(PointerEventData eventData){
         var label = GameObject.Find("ItemNameText");
         if(label){
             label.GetComponent<TextMeshProUGUI>().text = System.Environment.NewLine + Name;
