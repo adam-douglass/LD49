@@ -46,7 +46,7 @@ public class TrialLogic : MonoBehaviour
                 int remaining = session.wasteLimit - session.ingredientWasted;
                 text.text = remaining.ToString();
                 if(remaining <= 0){
-                    SceneManager.LoadScene("Finish");
+                    Finished();
                 }
             } break;
             case GameMode.Timed: {
@@ -55,7 +55,7 @@ public class TrialLogic : MonoBehaviour
                 int seconds = remaining%60;
                 text.text = $"{minutes}:{seconds:00}";
                 if(remaining <= 0){
-                    SceneManager.LoadScene("Finish");
+                    Finished();
                 } 
             } break;
             case GameMode.Zen: break;
@@ -63,6 +63,7 @@ public class TrialLogic : MonoBehaviour
     }
 
     public void Finished(){
+        session.duration = Time.time - start;
         SceneManager.LoadScene("Finish");
     }
 }
