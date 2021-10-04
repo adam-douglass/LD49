@@ -25,7 +25,7 @@ public class AudioManager : MonoBehaviour
     [SerializeField]
     private AudioSource MusicAudioSource;
 
-    private AudioSource defaultAudioSource;
+    public AudioSource defaultAudioSource;
     private float lastVolume = 0.0f;
 
     public void Awake()
