@@ -34,7 +34,6 @@ public class TrialLogic : MonoBehaviour
                 break;
             case GameMode.Zen:
                 ZenUI.SetActive(true);
-                // text = EfficiencyUI.transform.Find("Counter");
                 break;
         }        
     }
@@ -59,13 +58,7 @@ public class TrialLogic : MonoBehaviour
                     SceneManager.LoadScene("Finish");
                 } 
             } break;
-            case GameMode.Zen: {
-                // int remaining = session.wasteLimit - session.ingredientWasted;
-                // text.text = remaining.ToString();
-                // if(remaining <= 0){
-                //     SceneManager.LoadScene("Finish");
-                // } 
-            } break;
+            case GameMode.Zen: break;
         }
     }
 
