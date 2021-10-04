@@ -8,6 +8,7 @@ public class ToppingCarosel : MonoBehaviour
     float generationArea = -16;
     public GameObject FactoryClass;
 
+    private Randwhich rand;
     void Awake(){
         for(var ii = 0; ii < 5; ii++)
             ToppingFactory.AddMoreFlavour();
@@ -16,6 +17,15 @@ public class ToppingCarosel : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        rand = new Randwhich();
+    }
+
+    public Randwhich Rand
+    {
+        get
+        {
+            return rand;
+        }
     }
 
     // Update is called once per frame
