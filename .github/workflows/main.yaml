@@ -112,7 +112,7 @@ jobs:
         env:
           BUTLER_CREDENTIALS: ${{ secrets.BUTLER_CREDENTIALS }}
           CHANNEL: ${{ matrix.itchChannel }}
-          ITCH_GAME: sandwich
+          ITCH_GAME: uaud-sandwich
           ITCH_USER: mmason
           PACKAGE: build/${{ matrix.targetPlatform }}
           VERSION: ${{ steps.slug.outputs.sha8 }}
