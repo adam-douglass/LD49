@@ -137,7 +137,7 @@ MonoBehaviour:
   Name: Glowing rocks
   Width: 1
   Height: 1
-  Flavours: 050000000800000007000000
+  Flavours: 0500000008000000070000000b000000
   Mask: []
 --- !u!225 &8883674964826105033
 CanvasGroup:
