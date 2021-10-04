@@ -19,11 +19,11 @@ public class GridControl : MonoBehaviour
         canvas.worldCamera = Camera.main;
         int target = Random.Range(1, 1 + (Width * Height)/4);
         var selected = new HashSet<FlavourKinds>();
-        var values = System.Enum.GetValues(typeof(FlavourKinds));
+        var values = new List<FlavourKinds>(ToppingFactory.ActiveFlavours);
         Flavours = new FlavourKinds[target];
         
         while(selected.Count < target){
-            var pick = (FlavourKinds)values.GetValue(Random.Range(0, values.Length));
+            var pick = values[Random.Range(0, values.Count)];
             if(!selected.Contains(pick)){
                 Flavours[selected.Count] = pick;
                 selected.Add(pick);

@@ -53,6 +53,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Name: Dust bunnies
+  UsedName: Used dust bunnies
   Width: 1
   Height: 2
   Flavours: 0c0000000100000004000000
@@ -176,7 +177,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1497873247
-  m_SortingLayer: 5
+  m_SortingLayer: 6
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: f064975d8251abd4fb4f92bfe96ff8bd, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}

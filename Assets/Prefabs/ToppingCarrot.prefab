@@ -53,9 +53,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Name: Carrot
+  UsedName: Most of a carrot
   Width: 1
   Height: 2
-  Flavours: 000000000100000003000000
+  Flavours: 00000000010000000300000008000000
   Mask: []
 --- !u!225 &-7226036769456490989
 CanvasGroup:
@@ -176,7 +177,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1497873247
-  m_SortingLayer: 5
+  m_SortingLayer: 6
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 9822c3d1cd92cfb49a13837de523064a, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}

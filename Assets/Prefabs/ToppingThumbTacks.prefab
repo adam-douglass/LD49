@@ -53,9 +53,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Name: Thumb tacks
+  UsedName: Used thumb tacks
   Width: 1
   Height: 1
-  Flavours: 060000000100000009000000
+  Flavours: 06000000010000000900000008000000
   Mask: []
 --- !u!225 &4019557421639590924
 CanvasGroup:
@@ -118,7 +119,7 @@ GameObject:
   - component: {fileID: 5412606142256517702}
   - component: {fileID: 3546807416907594879}
   m_Layer: 0
-  m_Name: carrot
+  m_Name: 'carrot '
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -176,7 +177,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1497873247
-  m_SortingLayer: 5
+  m_SortingLayer: 6
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: a2eb0cdf6f8f9f94391c6ed98a79a64c, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}

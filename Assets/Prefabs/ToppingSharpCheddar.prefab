@@ -53,6 +53,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Name: Sharp cheddar slices
+  UsedName: Slightly dull cheddar slices
   Width: 2
   Height: 2
   Flavours: 060000000500000000000000
@@ -176,9 +177,9 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1497873247
-  m_SortingLayer: 5
+  m_SortingLayer: 6
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 1110639137f134045b0b1a45ac447c3b, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 23cb0869407ac8f4b90ba7305286e622, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

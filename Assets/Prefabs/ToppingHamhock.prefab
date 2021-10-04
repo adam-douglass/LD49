@@ -69,7 +69,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1497873247
-  m_SortingLayer: 5
+  m_SortingLayer: 6
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 0efcf6d8f0744ba46a0a366986c3ec92, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -135,9 +135,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Name: An entire hamhock
+  UsedName: An entire used hamhock
   Width: 2
   Height: 2
-  Flavours: 090000000a0000000b000000
+  Flavours: 090000000a0000000b00000002000000
   Mask: []
 --- !u!225 &1164826121914095089
 CanvasGroup:
