@@ -33,6 +33,7 @@ public class AudioManager : MonoBehaviour
         if (FindObjectsOfType<AudioManager>().Length > 1)
         {
             DestroyImmediate(this.gameObject);
+            return;
         }
         else
         {

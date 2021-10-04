@@ -78,13 +78,13 @@ public class Topping : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, IE
         originPosition = this.transform.parent.position;
         var label = GameObject.Find("ItemNameText");
         if(label){
-            label.GetComponent<TextMeshProUGUI>().text = Name;
+            label.GetComponent<TextMeshProUGUI>().text = System.Environment.NewLine + Name;
         }
         label = GameObject.Find("ItemValuesText");
         if(label){
             string output = "";
             foreach(var taste in Flavours){
-                output += taste.ToString() + " ";
+                output += taste.ToString() + System.Environment.NewLine;
             }
             label.GetComponent<TextMeshProUGUI>().text = output;
         }
