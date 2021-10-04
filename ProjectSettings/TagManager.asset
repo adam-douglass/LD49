@@ -47,6 +47,9 @@ TagManager:
   - name: Belts
     uniqueID: 2886603061
     locked: 0
+  - name: Labels
+    uniqueID: 1957734227
+    locked: 0
   - name: Carts
     uniqueID: 2581575825
     locked: 0
