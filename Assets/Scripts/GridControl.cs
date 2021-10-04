@@ -15,10 +15,9 @@ public class GridControl : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Collider = GetComponent<Collider2D>();
         canvas = GetComponent<Canvas>();
         canvas.worldCamera = Camera.main;
-        int target = Random.Range(1, 3);
+        int target = Random.Range(1, 1 + (Width * Height)/4);
         var selected = new HashSet<FlavourKinds>();
         var values = System.Enum.GetValues(typeof(FlavourKinds));
         Flavours = new FlavourKinds[target];
@@ -35,7 +34,11 @@ public class GridControl : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        
+    }
 
+    public void Lock(){
+        canvas.enabled = false;
     }
 
     public Vector2 Offset {
@@ -48,6 +51,10 @@ public class GridControl : MonoBehaviour
 
     public Vector2 Origin2 {
         get => (new Vector2(Collider.bounds.center.x, Collider.bounds.center.y) - new Vector2(Width, Height)/2.0f);
+    }
+
+    public bool Fits(int width, int height){
+        return Width >= width && Height >= height;
     }
 
     public Vector2Int SnapTo(Vector2 point, int width, int height){
@@ -70,13 +77,13 @@ public class GridControl : MonoBehaviour
     public bool AreaClearFor(Vector2Int index, int width, int height, Topping looking){
         if(looking.Mask.Length > 0){
             foreach(var offset in looking.Mask){
-                var obj = ObjectAt(index + offset);
+                var obj = ObjectAt(index + offset, looking);
                 if(obj != null && obj != looking) return false;
             }
         } else {
             for(int ii = 0; ii < width; ii++){
                 for(int jj = 0; jj < height; jj++){
-                    var obj = ObjectAt(index + new Vector2Int(ii, jj));
+                    var obj = ObjectAt(index + new Vector2Int(ii, jj), looking);
                     if(obj != null && obj != looking) return false;
                 }
             }
@@ -93,8 +100,9 @@ public class GridControl : MonoBehaviour
         return true;
     }
 
-    public Topping ObjectAt(Vector2Int point) {
+    public Topping ObjectAt(Vector2Int point, Topping ignore=null) {
         foreach(var option in GetComponentsInChildren<Topping>()){
+            if(option == ignore) continue;
             var index = Vector2Int.RoundToInt(option.transform.position - Origin - option.Offset3);
             if(option.Mask.Length > 0){
                 foreach(var offset in option.Mask){

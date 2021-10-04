@@ -5,13 +5,12 @@ using UnityEngine;
 public class ToppingCarosel : MonoBehaviour
 {
 
-    float generationArea = -10;
+    float generationArea = -16;
     public GameObject FactoryClass;
 
     // Start is called before the first frame update
     void Start()
     {
-        generationArea = Camera.main.ViewportToWorldPoint(new Vector3(0, 0, 0)).x;
     }
 
     // Update is called once per frame
@@ -22,10 +21,15 @@ public class ToppingCarosel : MonoBehaviour
             if(obj.transform.position.x  > -generationArea){
                 GameObject.Destroy(obj.gameObject);
             }
-            left = Mathf.Min(obj.transform.position.x, left);
+            var topping = obj.gameObject.GetComponentInChildren<Topping>();
+            if(topping){
+                left = Mathf.Min(obj.transform.position.x - topping.Width/2.0f, left);
+            }
+            
         }
+        Debug.Log(left);
         if(left > generationArea){
-            var position = new Vector3(generationArea - 2, this.transform.position.y, 0);
+            var position = new Vector3(generationArea, this.transform.position.y, 0);
             var created = Instantiate(FactoryClass, position, Quaternion.identity);
             created.transform.SetParent(this.transform);
         }

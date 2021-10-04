@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3412539349842203130}
   - component: {fileID: 5433460506444208889}
+  - component: {fileID: 200663097375946664}
   m_Layer: 5
   m_Name: SledForToppings
   m_TagString: Untagged
@@ -28,7 +29,6 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 4530793653742632171}
   - {fileID: 3457575584749099873}
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -55,44 +55,32 @@ MonoBehaviour:
   - {fileID: 4166907603971587519, guid: 42faf929a871cf84094d80219f34366e, type: 3}
   - {fileID: 4166907603971587519, guid: 542c2b1e88ae082499a6a07af9cbb47a, type: 3}
   - {fileID: 4166907603971587519, guid: 57a47705b28965b43a409fb5f3b62399, type: 3}
---- !u!1 &6025535224964263805
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 4530793653742632171}
-  - component: {fileID: 205499178535104907}
-  m_Layer: 0
-  m_Name: space
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &4530793653742632171
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6025535224964263805}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 3412539349842203130}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!212 &205499178535104907
+  - {fileID: 8974463194721362179, guid: ee8e4e3fa9b13f74782f0034eb3c3f58, type: 3}
+  - {fileID: 6769210781396080174, guid: aa7b72e93e5a3dd4bab20d12e3446bc3, type: 3}
+  - {fileID: 2764441293199607628, guid: d206876c098df1b44ac0973171a714d3, type: 3}
+  - {fileID: 187681762186680078, guid: 7e13f12c6923a1345b995be9bc1c3a52, type: 3}
+  - {fileID: 2047706964077729871, guid: 475350d90b2807d40a23bdfb53b48276, type: 3}
+  - {fileID: 2167587482121488632, guid: 2145ae3deb399c34697422f182936acd, type: 3}
+  - {fileID: 6780383779393974510, guid: 59180d33a19825c45a32deac523898d3, type: 3}
+  - {fileID: 3575106203444555952, guid: ea363cb4ac252dd4a9d37db761aa0d5c, type: 3}
+  - {fileID: 3134827907035325423, guid: fdc98e03174242647b3793f5a51a08b0, type: 3}
+  - {fileID: 5546933760084094324, guid: 0b4a809662f5db246870eaa6fd897a52, type: 3}
+  - {fileID: 4893822027889081844, guid: 7a76bd2ec1cd63a449669d3d31991413, type: 3}
+  - {fileID: 3103191369777068212, guid: dc0f2818e94c61343bb69fd19798f314, type: 3}
+  - {fileID: 6425799822036856677, guid: 1cbdb9b487c6e95428e94af72a41e01c, type: 3}
+  - {fileID: 2937768493796805712, guid: f158bfc5da53e6f4c811e50d80d1ca65, type: 3}
+  - {fileID: 3324242576656273436, guid: 4f13d9d92c82be9478bd74d93118046e, type: 3}
+  - {fileID: 1532501115873894497, guid: 6b60f2b0d6d1b3444802ba2229084ea8, type: 3}
+  - {fileID: 1513857433089417752, guid: f9d9d681bb344d14aa95bc6c8359444d, type: 3}
+  - {fileID: 1561754670662627232, guid: f8fe783a79e0f99468d920ba45228746, type: 3}
+  - {fileID: 8877310974120177728, guid: 363c0b5f982feff4ab480c36f63289be, type: 3}
+--- !u!212 &200663097375946664
 SpriteRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6025535224964263805}
+  m_GameObject: {fileID: 3050737523697214618}
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
@@ -130,7 +118,7 @@ SpriteRenderer:
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
-  m_DrawMode: 0
+  m_DrawMode: 1
   m_Size: {x: 1.28, y: 1.28}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
@@ -168,12 +156,12 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 3412539349842203130}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 10, y: 10}
+  m_SizeDelta: {x: 1, y: 1}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!223 &2062161574711262873
 Canvas:

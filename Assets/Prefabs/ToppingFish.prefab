@@ -52,9 +52,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d1cb0934f5ddd3a499fc90ced7da6116, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Name: Fish
   Width: 2
   Height: 3
-  Flavours: 000000000100000002000000
+  Flavours: 0000000001000000020000000f000000
+  Mask: []
 --- !u!225 &-7226036769456490989
 CanvasGroup:
   m_ObjectHideFlags: 0
