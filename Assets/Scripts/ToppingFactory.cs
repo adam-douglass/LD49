@@ -8,8 +8,6 @@ public class ToppingFactory : MonoBehaviour
     public GameObject[] Toppings;
     private Canvas canvas;
     private SpriteRenderer sprite;
-    private List<int> previousRandomNumbers;
-    private int numberOfPrevious = 4;
 
     private Randwhich rand;
     public int Width;
