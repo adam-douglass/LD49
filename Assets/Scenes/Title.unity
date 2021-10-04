@@ -153,6 +153,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 215719763}
+  - {fileID: 1563943378}
   - {fileID: 200756499}
   m_Father: {fileID: 559531011}
   m_RootOrder: 1
@@ -182,8 +183,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
+  m_Sprite: {fileID: 21300000, guid: 10f10fa24a9483447a4cb83db5c1f933, type: 3}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -656,11 +657,11 @@ RectTransform:
   m_Children:
   - {fileID: 128492342}
   m_Father: {fileID: 24216387}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 1, y: 0}
-  m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchorMin: {x: 1, y: 1}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: -40}
   m_SizeDelta: {x: 40, y: 40}
   m_Pivot: {x: 1, y: 0}
 --- !u!114 &200756500
@@ -924,8 +925,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: -20, y: -20}
+  m_AnchoredPosition: {x: -181.2, y: 49.54}
+  m_SizeDelta: {x: -452.99, y: -181.53}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &215719764
 MonoBehaviour:
@@ -949,7 +950,7 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 22
+    m_FontSize: 24
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 2
@@ -960,21 +961,11 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Welcome to Unstable Adam''s Unstable Diner, where the flavour is the experience. 
-    Patrons come from far and wide to sample Adam''s fantastic flavour profiles,
-    and enjoy the aromatic scents that the sandwiches create.
-
-
-    Today is your
-    first day as a sandwich prep jockey, suit up and get ready to deliver tastes
-    that will amaze.  You''re job as the sandwich prep jockey is to assemble the
-    sandwiches as the patrons have requested them.  Please hold all judgement of
-    requests.
-
-
-    If the patron requests their sandwich be Healthy and Hot then
-    you must provide at least one ingredient with the Healthy flavour and at least
-    one ingredient with the Hot flavour.'
+  m_Text: "Welcome to Unstable Adam's Unstable Diner, where the flavour is the experience. 
+    \n\nPatrons come from far and wide to sample Adam's fantastic flavour profiles,
+    and enjoy the aromatic scents that the sandwiches create.\n\nToday is your first
+    day as a sandwich prep jockey, suit up and get ready to deliver tastes that will
+    amaze."
 --- !u!222 &215719765
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1210,7 +1201,7 @@ RectTransform:
   m_GameObject: {fileID: 559531007}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.0125, y: 0.0125, z: 1}
+  m_LocalScale: {x: 0.025, y: 0.025, z: 1}
   m_Children:
   - {fileID: 1644789847}
   - {fileID: 24216387}
@@ -3586,6 +3577,92 @@ CanvasRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1474855363}
+  m_CullTransparentMesh: 1
+--- !u!1 &1563943377
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1563943378}
+  - component: {fileID: 1563943380}
+  - component: {fileID: 1563943379}
+  m_Layer: 5
+  m_Name: Text (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1563943378
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1563943377}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 24216387}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 197, y: 52.93}
+  m_SizeDelta: {x: -486.92, y: -188.32}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1563943379
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1563943377}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FontData:
+    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_FontSize: 24
+    m_FontStyle: 0
+    m_BestFit: 0
+    m_MinSize: 2
+    m_MaxSize: 40
+    m_Alignment: 0
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: '  You''re job as the sandwich prep jockey is to assemble the sandwiches
+    as the patrons have requested them.  Please hold all judgement of requests.
+
+
+    If
+    the patron requests their sandwich be Healthy and Hot then you must provide at
+    least one ingredient with the Healthy flavour and at least one ingredient with
+    the Hot flavour.'
+--- !u!222 &1563943380
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1563943377}
   m_CullTransparentMesh: 1
 --- !u!1 &1644789846
 GameObject:
