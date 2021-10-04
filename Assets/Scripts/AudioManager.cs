@@ -39,7 +39,7 @@ public class AudioManager : MonoBehaviour
         {
             DontDestroyOnLoad(this);
         }
-
+        
         if (MusicAudioSource is null)
         {
             Debug.LogError($"{nameof(MusicAudioSource)} is null");

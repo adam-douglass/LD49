@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -7,14 +8,18 @@ public class ToppingFactory : MonoBehaviour
     public GameObject[] Toppings;
     private Canvas canvas;
     private SpriteRenderer sprite;
-    private System.Random _rand = new System.Random();
+    private List<int> previousRandomNumbers;
+    private int numberOfPrevious = 4;
 
+    private Randwhich rand;
+    
     // Start is called before the first frame update
     void Start()
     {
         canvas = this.GetComponentInChildren<Canvas>();
         canvas.worldCamera = Camera.main;
         sprite = GetComponent<SpriteRenderer>();
+        rand = FindObjectOfType<ToppingCarosel>().Rand;
         Fill();
     }
 
@@ -26,7 +31,7 @@ public class ToppingFactory : MonoBehaviour
 
     public void Fill(){
         if(Toppings.Length > 0){
-            var index = _rand.Next(Toppings.Length);
+            var index = rand.GetRandom(Toppings.Length);
             var created = Instantiate(Toppings[index], this.gameObject.transform.position, Quaternion.identity);
             created.transform.SetParent(canvas.transform);
             var topping = created.GetComponent<Topping>();

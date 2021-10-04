@@ -8,9 +8,19 @@ public class ToppingCarosel : MonoBehaviour
     float generationArea = -16;
     public GameObject FactoryClass;
 
+    private Randwhich rand;
     // Start is called before the first frame update
     void Start()
     {
+        rand = new Randwhich();
+    }
+
+    public Randwhich Rand
+    {
+        get
+        {
+            return rand;
+        }
     }
 
     // Update is called once per frame
