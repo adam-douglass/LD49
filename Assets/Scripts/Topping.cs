@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using TMPro;
+using System.Linq;
 
 
 public enum FlavourKinds {
@@ -23,6 +24,7 @@ public enum FlavourKinds {
     Extravagant,
     Slimey,
     Fragile,
+    Used
 }
 
 public class Topping : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, IEndDragHandler, IDragHandler
@@ -38,6 +40,8 @@ public class Topping : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, IE
     private bool dragging;
     private Vector3 originPosition;
     private Vector3 mouseLocation;
+
+    private int timesPlaced = 0;
 
     // Start is called before the first frame update
     void Start()
@@ -99,6 +103,12 @@ public class Topping : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, IE
         var grid = SnapTarget();
         if(grid){
             if(grid.AddObject(this, SnapLocation(grid))){
+                timesPlaced++;
+                if (timesPlaced == 2)
+                {
+                    System.Array.Resize(ref Flavours, this.Flavours.Length + 1);
+                    Flavours[Flavours.Length - 1] = FlavourKinds.Used;
+                }
                 return;
             }
         }
