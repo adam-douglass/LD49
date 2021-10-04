@@ -46,6 +46,12 @@ public class SessionInfo : MonoBehaviour
         sandwhichFinished = 0;
         ingredientWasted = 0;
     }
+    
+    public void ResetForPuzzle(){
+        gameMode = GameMode.Puzzle;
+        sandwhichFinished = 0;
+        ingredientWasted = 0;
+    }
 
     // Start is called before the first frame update
     void Awake()

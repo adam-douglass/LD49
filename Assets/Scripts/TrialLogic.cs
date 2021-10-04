@@ -9,6 +9,7 @@ public class TrialLogic : MonoBehaviour
     public GameObject EfficiencyUI;
     public GameObject TimedUI;
     public GameObject ZenUI;
+    public GameObject PuzzleUI;
 
     private float start;
     private Text text;
@@ -35,6 +36,9 @@ public class TrialLogic : MonoBehaviour
             case GameMode.Zen:
                 ZenUI.SetActive(true);
                 break;
+            case GameMode.Puzzle:
+                PuzzleUI.SetActive(true);
+                break;
         }        
     }
 
@@ -58,6 +62,7 @@ public class TrialLogic : MonoBehaviour
                     Finished();
                 } 
             } break;
+            case GameMode.Puzzle:
             case GameMode.Zen: break;
         }
     }

@@ -11,6 +11,8 @@ public class ToppingFactory : MonoBehaviour
 
     private Randwhich rand;
     public int Width;
+    private const int WorldWidth = 15;
+    private float velocity = 0;
 
     public static HashSet<FlavourKinds> ActiveFlavours = new HashSet<FlavourKinds>();
     public static void AddMoreFlavour(){
@@ -39,7 +41,39 @@ public class ToppingFactory : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        this.transform.position += new Vector3(Time.deltaTime, 0, 0);   
+        if(SessionInfo.Singleton.gameMode == GameMode.Puzzle){
+            if(this.Right >= WorldWidth){
+                if(!this.gameObject.GetComponentInChildren<Topping>())
+                    this.transform.position += new Vector3(Time.deltaTime*3.0f, 0, 0);
+            } else {
+                velocity += Time.deltaTime/5.0f;
+                if(CanMoveRight(velocity)){
+                    this.transform.position += new Vector3(velocity, 0, 0);
+                } else {
+                    velocity = 0;
+                }
+            }
+        } else {
+            this.transform.position += new Vector3(Time.deltaTime, 0, 0);   
+        }
+    }
+
+    public bool CanMoveRight(float delta) {
+        var right = this.Right;
+        foreach(var other in GameObject.FindObjectsOfType<ToppingFactory>()){
+            if(other == this) continue;
+            if(other.transform.position.x < this.transform.position.x) continue;
+            if(other.Left < Right + delta) return false;
+        }
+        return true;
+    }
+
+    public float Right {
+        get => this.transform.position.x + Width/2.0f + 0.5f;
+    }
+
+    public float Left {
+        get => this.transform.position.x - Width/2.0f - 0.5f;
     }
 
     public void Fill(){
