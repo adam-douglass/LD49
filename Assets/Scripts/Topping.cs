@@ -14,6 +14,14 @@ public enum FlavourKinds {
     Sharp,
     Clean,
     Crunchy,
+    Sticky,
+    Savoury,
+    Hot,
+    Fuzzy,
+    Exotic,
+    Extravagant,
+    Slimey,
+    Fragile,
 }
 
 public class Topping : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, IEndDragHandler, IDragHandler
