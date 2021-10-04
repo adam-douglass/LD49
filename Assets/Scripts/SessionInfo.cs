@@ -25,6 +25,7 @@ public class SessionInfo : MonoBehaviour
     public int ingredientWasted = 0;
     public int wasteLimit = 50;
     public float timeLimit = 120;
+    public float duration = 0;
 
     public void ResetForTrial(){
         gameMode = GameMode.Efficiency;
