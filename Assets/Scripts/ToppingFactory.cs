@@ -10,6 +10,7 @@ public class ToppingFactory : MonoBehaviour
     private SpriteRenderer sprite;
 
     private Randwhich rand;
+    public int Width;
 
     public static HashSet<FlavourKinds> ActiveFlavours = new HashSet<FlavourKinds>();
     public static void AddMoreFlavour(){
@@ -61,6 +62,7 @@ public class ToppingFactory : MonoBehaviour
             created.transform.SetParent(canvas.transform);
             var topping = created.GetComponent<Topping>();
             this.transform.position -= new Vector3(topping.Width/2.0f + 0.8f, 0, 0);
+            this.Width = topping.Width;
             sprite.size = new Vector2(topping.Width + 0.5f, topping.Height + 0.5f);
         } else {
             Debug.Log("Factory has no things in registered in for making");
