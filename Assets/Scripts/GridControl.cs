@@ -17,7 +17,7 @@ public class GridControl : MonoBehaviour
     {
         canvas = GetComponent<Canvas>();
         canvas.worldCamera = Camera.main;
-        int target = Random.Range(1, 3);
+        int target = Random.Range(1, 1 + (Width * Height)/4);
         var selected = new HashSet<FlavourKinds>();
         var values = System.Enum.GetValues(typeof(FlavourKinds));
         Flavours = new FlavourKinds[target];
@@ -51,6 +51,10 @@ public class GridControl : MonoBehaviour
 
     public Vector2 Origin2 {
         get => (new Vector2(Collider.bounds.center.x, Collider.bounds.center.y) - new Vector2(Width, Height)/2.0f);
+    }
+
+    public bool Fits(int width, int height){
+        return Width >= width && Height >= height;
     }
 
     public Vector2Int SnapTo(Vector2 point, int width, int height){
